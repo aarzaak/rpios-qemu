@@ -11,11 +11,11 @@ sudo nala install -y flex bison libssl-dev gcc-aarch64-linux-gnu g++-aarch64-lin
 
 #http://ubuntu.univ-reims.fr/ubuntu/
 
-wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.6.69.tar.xz
+wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.6.70.tar.xz
 
-tar -xJvf linux-6.6.69.tar.xz
+tar -xJvf linux-6.6.70.tar.xz
 
-cd linux-6.6.69
+cd linux-6.6.70
 
 ARCH=arm64 CROSS_COMPILE=/bin/aarch64-linux-gnu- make defconfig
 ARCH=arm64 CROSS_COMPILE=/bin/aarch64-linux-gnu- make kvm_guest.config
