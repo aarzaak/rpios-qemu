@@ -7,7 +7,7 @@ sudo nala upgrade -y
 #sudo nala install xinit enlightenment connman -y
 #(sudo systemctl enable bluetooth)
 
-sudo nala install -y flex bison libssl-dev gcc-aarch64-linux-gnu g++-aarch64-linux-gnu qemubuilder qemu-system-gui qemu-system-arm qemu-utils qemu-system-data qemu-system guestfs-tools
+sudo nala install -y make flex bison libssl-dev gcc-aarch64-linux-gnu g++-aarch64-linux-gnu qemubuilder qemu-system-gui qemu-system-arm qemu-utils qemu-system-data qemu-system guestfs-tools
 
 #http://ubuntu.univ-reims.fr/ubuntu/
 
