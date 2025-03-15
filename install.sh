@@ -1,35 +1,44 @@
 #!/bin/bash
 
+. ./color.sh
+
+printf "${BLUE}Installing nala to enhance apt…${NS}\n"
 sudo apt update && sudo apt install nala -y
+printf "${GREEN}Nala has been installed.${NS}\n"
 
+printf "${BLUE}Updating system…${NS}\n"
 sudo nala upgrade -y
+printf "${GREEN}System has been updated.${NS}\n"
 
-#sudo nala install xinit enlightenment connman -y
-#(sudo systemctl enable bluetooth)
-
+printf "${BLUE}Installing required software…${NS}\n"
 sudo nala install -y make flex bison libssl-dev gcc-aarch64-linux-gnu g++-aarch64-linux-gnu qemubuilder qemu-system-gui qemu-system-arm qemu-utils qemu-system-data qemu-system guestfs-tools
+printf "${GREEN}Required software has been installed.${NS}\n"
 
-#http://ubuntu.univ-reims.fr/ubuntu/
-
+printf "${BLUE}Downloading Linux kernel…${NS}\n"
 wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.6.83.tar.xz
+printf "${GREEN}Linux kernel has been downloaded${NS}\n"
 
+printf "${BLUE}Decompressing kernel archive…${NS}\n"
 tar -xJvf linux-6.6.83.tar.xz
+printf "${GREEN}Kernel archive has been decompressed.${NS}\n"
 
 cd linux-6.6.83
 
+printf "${BLUE}Compiling kernel, this may take a few minutes…${NS}\n"
 ARCH=arm64 CROSS_COMPILE=/bin/aarch64-linux-gnu- make defconfig
 ARCH=arm64 CROSS_COMPILE=/bin/aarch64-linux-gnu- make kvm_guest.config
 ARCH=arm64 CROSS_COMPILE=/bin/aarch64-linux-gnu- make -j$(nproc)
+printf "${GREEN}Linux kernel has been compiled.${NS}\n"
 
-cp arch/arm64/boot/Image ~
+printf "${BLUE}Moving compiled kernel to parent folder…${NS}\n"
+mv arch/arm64/boot/Image ..
+printf "${GREEN}Compiled kernel has been moved to parent folder.${NS}\n"
 
-#sudo systemctl disable systemd-networkd-wait-online.service
-#sudo systemctl disable pd-mapper.service
-#sudo systemctl disable NetworkManager-wait-online.service
+cd ..
 
-cd
-
+printf "${BLUE}Downloading latest version of Raspberry Pi OS…${NS}\n"
 wget https://downloads.raspberrypi.com/raspios_lite_armhf/images/raspios_lite_armhf-2024-11-19/2024-11-19-raspios-bookworm-armhf-lite.img.xz
+printf "${GREEN}Latest version of Raspberry Pi OS has been downloaded.${NS}\n"
 
 xz -dk 2024-11-19-raspios-bookworm-armhf-lite.img.xz
 
