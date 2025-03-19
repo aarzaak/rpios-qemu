@@ -13,14 +13,14 @@
 # Configurable parameters
 # -----------------------
 # Where to download the tarball and verification data.
-TARGETDIR="."
+TARGETDIR="$HOME/Downloads"
 
 # If you set this to empty value, we'll make a temporary
 # directory and fetch the verification keys from the
 # Web Key Directory each time. Also, see the USEKEYRING=
 # configuration option for an alternative that doesn't
 # rely on WKD.
-GNUPGHOME=""
+GNUPGHOME="$HOME/.gnupg"
 
 # For CI and other automated infrastructure, you may want to
 # create a keyring containing the keys belonging to:
