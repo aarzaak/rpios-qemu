@@ -1,5 +1,5 @@
 #!/bin/bash
-# get-verified-tarball
+# get-verified-tarball (original script created by Konstantin Ryabitsev)
 # --------------------
 # Get Linux kernel tarball and cryptographically verify it,
 # retrieving the PGP keys using the Web Key Directory (WKD)
