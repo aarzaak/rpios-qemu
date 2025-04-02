@@ -11,7 +11,7 @@ sudo nala upgrade -y
 printf "${GREEN}System has been updated.${NS}\n"
 
 printf "${BLUE}Installing required software…${NS}\n"
-sudo nala install -y curl sha256sum gpg gpgv xz make flex bison libssl-dev gcc-aarch64-linux-gnu g++-aarch64-linux-gnu qemubuilder qemu-system-gui qemu-system-arm qemu-utils qemu-system-data qemu-system guestfs-tools
+sudo nala install -y curl gpg gpgv make flex bison libssl-dev gcc-aarch64-linux-gnu g++-aarch64-linux-gnu qemubuilder qemu-system-gui qemu-system-arm qemu-utils qemu-system-data qemu-system guestfs-tools
 printf "${GREEN}Required software has been installed.${NS}\n"
 
 printf "${BLUE}Downloading Linux kernel…${NS}\n"
