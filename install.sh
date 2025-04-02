@@ -15,14 +15,14 @@ sudo nala install -y curl gpg gpgv make flex bison libssl-dev gcc-aarch64-linux-
 printf "${GREEN}Required software has been installed.${NS}\n"
 
 printf "${BLUE}Downloading Linux kernel…${NS}\n"
-wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.6.83.tar.xz
+wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.6.85.tar.xz
 printf "${GREEN}Linux kernel has been downloaded${NS}\n"
 
 printf "${BLUE}Decompressing kernel archive…${NS}\n"
-tar -xJvf linux-6.6.83.tar.xz
+tar -xJvf linux-6.6.85.tar.xz
 printf "${GREEN}Kernel archive has been decompressed.${NS}\n"
 
-cd linux-6.6.83
+cd linux-6.6.85
 
 printf "${BLUE}Compiling kernel, this may take a few minutes…${NS}\n"
 ARCH=arm64 CROSS_COMPILE=/bin/aarch64-linux-gnu- make defconfig
