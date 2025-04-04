@@ -77,7 +77,13 @@ fi
 
 if [[ ! -d ${TARGETDIR} ]]; then
     echo "${TARGETDIR} does not exist"
-    exit 1
+    echo -n "Create it? [Y/n]"
+    read YN
+    if [[ ${YN} == 'n' ]]; then
+        echo "Exiting"
+        exit 1
+    fi
+    mkdir -p -m 0700 ${TARGETDIR}
 fi
 
 TARGET="${TARGETDIR}/linux-${VER}.tar.xz"
