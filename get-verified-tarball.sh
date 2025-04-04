@@ -79,7 +79,7 @@ if [[ ! -d ${TARGETDIR} ]]; then
     echo "${TARGETDIR} does not exist"
     echo -n "Create it? [Y/n]"
     read YN
-    if [[ ${YN} != 'y' && ${YN} != 'Y' && ${YN} != '']]; then
+    if [[ ${YN} != 'y' ]] && [[ ${YN} != 'Y' ]] && [[ ${YN} != '' ]]; then
         echo "Exiting"
         exit 1
     fi
@@ -115,7 +115,7 @@ if [[ -z ${USEKEYRING} ]]; then
         echo "GNUPGHOME directory ${GNUPGHOME} does not exist"
         echo -n "Create it? [Y/n]"
         read YN
-        if [[ ${YN} != 'y' && ${YN} != 'Y' && ${YN} != '']]; then
+        if [[ ${YN} != 'y' ]]  && [[ ${YN} != 'Y' ]] && [[ ${YN} != '' ]]; then
             echo "Exiting"
             rm -rf ${TMPDIR}
             exit 1
