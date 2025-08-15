@@ -2,7 +2,10 @@
 
 . ./color.sh
 
-. ./get-verified-tarball.sh
+if ! ./get-verified-tarball.sh; then
+    printf "${RED}Failed to retrieve kernel.${NS}\n"
+    exit 1
+fi
 
 printf "${BLUE}Fetching updates…${NS}\n"
 sudo apt update
@@ -25,10 +28,10 @@ if ! [[ -f ${KERNEL} ]]; then
 fi
 KERNELFILENAME=$(head -n 1 ${KERNEL})
 
-tar -xJvf ${KERNELFILENAME}
+tar -xJf ${KERNELFILENAME}
 printf "${GREEN}Kernel archive has been decompressed.${NS}\n"
 
-KERNELVERSION=${KERNELFILENAME%%.*}
+KERNELVERSION=${KERNELFILENAME%.*.*}
 
 cd ${KERNELVERSION}
 

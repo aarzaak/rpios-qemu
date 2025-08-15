@@ -220,3 +220,4 @@ rm -rf ${TMPDIR}
 echo ${TARGET} > .kernel
 echo
 echo "Successfully downloaded and verified ${TARGET}"
+exit 0
