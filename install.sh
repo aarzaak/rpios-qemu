@@ -60,7 +60,7 @@ xz -dk 2025-05-13-raspios-bookworm-armhf-lite.img.xz
 #openssl passwd -6
 #$6$JunV9CZDfUSGlapS$t5LCnmrsrNYdt0jTZNWVkdmao1XXy.DIo.62v2CGPIJq73vuAd8JhnhN9zmE82AtCN/gpAoBasNtAQ9Y08wuH/
 
-sudo mount -o loop,offset=4194304 2024-11-19-raspios-bookworm-armhf-lite.img /mnt
+sudo mount -o loop,offset=4194304 2025-05-13-raspios-bookworm-armhf-lite.img /mnt
 
 #sudo mount -o loop,offset=4194304 2024-11-19-raspios-bookworm-arm64.img /mnt
 
@@ -70,14 +70,14 @@ sudo touch /mnt/ssh
 
 sudo umount /mnt
 
-cp 2024-11-19-raspios-bookworm-armhf-lite.img 2024-11-19-raspios-bookworm-armhf-lite-bigger.img
-truncate -s 16G 2024-11-19-raspios-bookworm-armhf-lite-bigger.img
-sudo virt-resize --expand /dev/sda2 2024-11-19-raspios-bookworm-armhf-lite.img 2024-11-19-raspios-bookworm-armhf-lite-bigger.img
+cp 2025-05-13-raspios-bookworm-armhf-lite.img 2025-05-13-raspios-bookworm-armhf-lite-bigger.img
+truncate -s 16G 2025-05-13-raspios-bookworm-armhf-lite-bigger.img
+sudo virt-resize --expand /dev/sda2 2025-05-13-raspios-bookworm-armhf-lite.img 2025-05-13-raspios-bookworm-armhf-lite-bigger.img
 
 #cp 2024-11-19-raspios-bookworm-arm64.img 2024-11-19-raspios-bookworm-arm64-bigger.img
 #truncate -s 16G 2024-11-19-raspios-bookworm-arm64-bigger.img
 #sudo virt-resize --expand /dev/sda2 2024-11-19-raspios-bookworm-arm64.img 2024-11-19-raspios-bookworm-arm64-bigger.img
 
-cp 2024-11-19-raspios-bookworm-armhf-lite-bigger.img 2024-11-19-raspios-bookworm-armhf-lite-bigger.img.bak
+cp 2025-05-13-raspios-bookworm-armhf-lite-bigger.img 2025-05-13-raspios-bookworm-armhf-lite-bigger.img.bak
 
 #cp 2024-11-19-raspios-bookworm-arm64-bigger.img 2024-11-19-raspios-bookworm-arm64-bigger.img.bak
