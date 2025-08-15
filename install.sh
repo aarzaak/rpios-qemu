@@ -2,6 +2,8 @@
 
 . ./color.sh
 
+. ./get-verified-tarball.sh
+
 printf "${BLUE}Fetching updates…${NS}\n"
 sudo apt update
 printf "${GREEN}Updates have been fetched.${NS}\n"
@@ -14,15 +16,21 @@ printf "${BLUE}Installing required software…${NS}\n"
 sudo apt install -y curl gpg gpgv make flex bison libssl-dev gcc-aarch64-linux-gnu g++-aarch64-linux-gnu qemubuilder qemu-system-gui qemu-system-arm qemu-utils qemu-system-data qemu-system guestfs-tools
 printf "${GREEN}Required software has been installed.${NS}\n"
 
-printf "${BLUE}Downloading Linux kernel…${NS}\n"
-wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.12.42.tar.xz
-printf "${GREEN}Linux kernel has been downloaded${NS}\n"
-
 printf "${BLUE}Decompressing kernel archive…${NS}\n"
-tar -xJvf linux-6.12.42.tar.xz
+KERNEL="./.kernel"
+# Do we already have this file?
+if ! [[ -f ${KERNEL} ]]; then
+    echo "Kernel version not found because .kernel file does not exist."
+    exit 1
+fi
+KERNELFILENAME=$(head -n 1 ${KERNEL})
+
+tar -xJvf ${KERNELFILENAME}
 printf "${GREEN}Kernel archive has been decompressed.${NS}\n"
 
-cd linux-6.12.42
+KERNELVERSION=${KERNELFILENAME%%.*}
+
+cd ${KERNELVERSION}
 
 printf "${BLUE}Compiling kernel, this may take a few minutes…${NS}\n"
 ARCH=arm64 CROSS_COMPILE=/bin/aarch64-linux-gnu- make defconfig

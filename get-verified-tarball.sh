@@ -13,7 +13,7 @@
 # Configurable parameters
 # -----------------------
 # Where to download the tarball and verification data.
-TARGETDIR="$HOME/Downloads"
+TARGETDIR="."
 
 # If you set this to empty value, we'll make a temporary
 # directory and fetch the verification keys from the
@@ -197,7 +197,7 @@ fi
 
 pushd ${TMPDIR} >/dev/null
 echo "Verifying checksum on linux-${VER}.tar.xz"
-if ! ${SHA256SUMBIN} -c ${SHACHECK}; then
+if ! ${SHA256SUMBIN} -c sha256sums.txt; then
     echo "FAILED to verify the downloaded tarball checksum"
     popd >/dev/null
     rm -rf ${TMPDIR}
@@ -217,5 +217,6 @@ if [[ ${COUNT} -lt 2 ]]; then
 fi
 mv -f ${TXZFILE} ${TARGET}
 rm -rf ${TMPDIR}
+echo ${TARGET} > .kernel
 echo
 echo "Successfully downloaded and verified ${TARGET}"
