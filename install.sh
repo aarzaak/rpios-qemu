@@ -48,10 +48,10 @@ printf "${GREEN}Compiled kernel has been moved to parent folder.${NS}\n"
 cd ..
 
 printf "${BLUE}Downloading latest version of Raspberry Pi OS…${NS}\n"
-wget https://downloads.raspberrypi.com/raspios_lite_armhf/images/raspios_lite_armhf-2024-11-19/2024-11-19-raspios-bookworm-armhf-lite.img.xz
+wget https://downloads.raspberrypi.com/raspios_lite_armhf/images/raspios_lite_armhf-2025-05-13/2025-05-13-raspios-bookworm-armhf-lite.img.xz
 printf "${GREEN}Latest version of Raspberry Pi OS has been downloaded.${NS}\n"
 
-xz -dk 2024-11-19-raspios-bookworm-armhf-lite.img.xz
+xz -dk 2025-05-13-raspios-bookworm-armhf-lite.img.xz
 
 #wget https://downloads.raspberrypi.com/raspios_arm64/images/raspios_arm64-2024-11-19/2024-11-19-raspios-bookworm-arm64.img.xz
 
