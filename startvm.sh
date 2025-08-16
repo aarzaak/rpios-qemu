@@ -7,7 +7,7 @@ qemu-system-aarch64 \
 -m 1G \
 -kernel Image \
 -append "root=/dev/vda2 rootfstype=ext4 rw panic=0 console=ttyAMA0" \
--drive format=raw,file=2024-11-19-raspios-bookworm-armhf-lite-bigger.img,if=none,id=hd0,cache=writeback \
+-drive format=raw,file=2025-05-13-raspios-bookworm-armhf-lite-bigger.img,if=none,id=hd0,cache=writeback \
 -device virtio-blk,drive=hd0,bootindex=0 \
 -netdev user,id=mynet,hostfwd=tcp::2222-:22 \
 -device virtio-net-pci,netdev=mynet \
@@ -20,7 +20,7 @@ qemu-system-aarch64 \
 #-m 1G \
 #-kernel Image \
 #-append "root=/dev/vda2 rootfstype=ext4 rw panic=0 console=ttyAMA0" \
-#-drive format=raw,file=2024-11-19-raspios-bookworm-arm64-bigger.img,if=none,id=hd0,cache=writeback \
+#-drive format=raw,file=2025-05-13-raspios-bookworm-arm64-bigger.img,if=none,id=hd0,cache=writeback \
 #-device virtio-blk,drive=hd0,bootindex=0 \
 #-netdev user,id=mynet,hostfwd=tcp::2222-:22 \
 #-device virtio-net-pci,netdev=mynet \
