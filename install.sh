@@ -60,7 +60,7 @@ xz -dk 2025-05-13-raspios-bookworm-armhf-lite.img.xz
 #openssl passwd -6
 #$6$JunV9CZDfUSGlapS$t5LCnmrsrNYdt0jTZNWVkdmao1XXy.DIo.62v2CGPIJq73vuAd8JhnhN9zmE82AtCN/gpAoBasNtAQ9Y08wuH/
 
-sudo mount -o loop,offset=4194304 2025-05-13-raspios-bookworm-armhf-lite.img /mnt
+sudo mount -o loop,offset=$((512*1064960)) 2025-05-13-raspios-bookworm-armhf-lite.img /mnt
 
 #sudo mount -o loop,offset=4194304 2024-11-19-raspios-bookworm-arm64.img /mnt
 
