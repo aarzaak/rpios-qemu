@@ -91,6 +91,12 @@ sudo virt-resize --expand /dev/sda2 2025-05-13-raspios-bookworm-armhf-lite.img 2
 # We can now delete the original Raspberry Pi OS Lite image
 rm 2025-05-13-raspios-bookworm-armhf-lite.img
 
+# We can now delete the kernel archive
+rm ${KERNELFILENAME}
+
+# We can remove the decompressed kernel archive
+rm -rf ${KERNELVERSION}
+
 # We back up the resized Raspberry Pi OS Lite image so that we can reset our emulator anytime
 cp 2025-05-13-raspios-bookworm-armhf-lite-bigger.img 2025-05-13-raspios-bookworm-armhf-lite-bigger.img.bak
 
