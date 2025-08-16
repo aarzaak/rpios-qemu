@@ -66,7 +66,7 @@ printf "${GREEN}Latest version of Raspberry Pi OS has been downloaded.${NS}\n\n"
 xz -d 2025-05-13-raspios-bookworm-armhf-lite.img.xz
 
 # We mount the image so that we can define a password for the pi user
-sudo mount -o loop,offset=$((512*1064960)) 2025-05-13-raspios-bookworm-armhf-lite.img /mnt
+sudo mount -o loop,offset=$((512*16384)) 2025-05-13-raspios-bookworm-armhf-lite.img /mnt
 
 # We define the password for the pi user
 printf "${BLUE}Defining password for pi user…${NS}\n"
