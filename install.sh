@@ -3,12 +3,6 @@
 # Let's define some colours for the messages we want to display to inform the user
 . ./color.sh
 
-# Let's retrieve the latest stable kernel version
-if ! ./get-verified-tarball.sh; then
-    printf "${RED}Failed to retrieve kernel. Exiting.${NS}\n\n"
-    exit 1
-fi
-
 # Let's update the system repositories
 printf "${BLUE}Fetching updates…${NS}\n"
 sudo apt update
@@ -23,6 +17,12 @@ printf "${GREEN}System has been updated.${NS}\n\n"
 printf "${BLUE}Installing required software…${NS}\n"
 sudo apt install -y curl gpg gpgv make flex bison libssl-dev gcc-aarch64-linux-gnu g++-aarch64-linux-gnu qemubuilder qemu-system-gui qemu-system-arm qemu-utils qemu-system-data qemu-system guestfs-tools
 printf "${GREEN}Required software has been installed.${NS}\n\n"
+
+# Let's retrieve the latest stable kernel version
+if ! ./get-verified-tarball.sh; then
+    printf "${RED}Failed to retrieve kernel. Exiting.${NS}\n\n"
+    exit 1
+fi
 
 # Time to decompress the kernel archive we previously retrieved
 printf "${BLUE}Decompressing kernel archive…${NS}\n"
