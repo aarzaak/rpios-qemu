@@ -59,14 +59,14 @@ cd ..
 
 # Now, we need to retrieve an image of Raspberry Pi OS Lite
 printf "${BLUE}Downloading latest version of Raspberry Pi OS…${NS}\n"
-wget https://downloads.raspberrypi.com/raspios_lite_armhf/images/raspios_lite_armhf-2025-05-13/2025-05-13-raspios-bookworm-armhf-lite.img.xz
+wget https://downloads.raspberrypi.com/raspios_lite_armhf/images/raspios_lite_armhf-2026-06-19/2026-06-18-raspios-trixie-armhf-lite.img.xz
 printf "${GREEN}Latest version of Raspberry Pi OS has been downloaded.${NS}\n\n"
 
 # We decompress the image of Raspberry Pi OS Lite we just retrieved
-xz -d 2025-05-13-raspios-bookworm-armhf-lite.img.xz
+xz -d 22026-06-18-raspios-trixie-armhf-lite.img.xz
 
 # We mount the image so that we can define a password for the pi user
-sudo mount -o loop,offset=$((512*16384)) 2025-05-13-raspios-bookworm-armhf-lite.img /mnt
+sudo mount -o loop,offset=$((512*16384)) 2026-06-18-raspios-trixie-armhf-lite.img /mnt
 
 # We define the password for the pi user
 printf "${BLUE}Defining password for pi user…${NS}\n"
@@ -84,12 +84,12 @@ printf "${GREEN}SSH server has been enabled.${NS}\n\n"
 sudo umount /mnt
 
 # We need to copy the contents of the Raspberry Pi OS Lite image into an image whose size is 16GB
-cp 2025-05-13-raspios-bookworm-armhf-lite.img 2025-05-13-raspios-bookworm-armhf-lite-bigger.img
-truncate -s 16G 2025-05-13-raspios-bookworm-armhf-lite-bigger.img
-sudo virt-resize --expand /dev/sda2 2025-05-13-raspios-bookworm-armhf-lite.img 2025-05-13-raspios-bookworm-armhf-lite-bigger.img
+cp 2026-06-18-raspios-trixie-armhf-lite.img 2026-06-18-raspios-trixie-armhf-lite-bigger.img
+truncate -s 16G 2026-06-18-raspios-trixie-armhf-lite-bigger.img
+sudo virt-resize --expand /dev/sda2 2026-06-18-raspios-trixie-armhf-lite.img 2026-06-18-raspios-trixie-armhf-lite-bigger.img
 
 # We can now delete the original Raspberry Pi OS Lite image
-rm 2025-05-13-raspios-bookworm-armhf-lite.img
+rm 2026-06-18-raspios-trixie-armhf-lite.img
 
 # We can now delete the kernel archive
 rm ${KERNELFILENAME}
@@ -98,5 +98,5 @@ rm ${KERNELFILENAME}
 rm -rf ${KERNELVERSION}
 
 # We back up the resized Raspberry Pi OS Lite image so that we can reset our emulator anytime
-cp 2025-05-13-raspios-bookworm-armhf-lite-bigger.img 2025-05-13-raspios-bookworm-armhf-lite-bigger.img.bak
+cp 2026-06-18-raspios-trixie-armhf-lite-bigger.img 2026-06-18-raspios-trixie-armhf-lite-bigger.img.bak
 
