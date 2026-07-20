@@ -63,7 +63,7 @@ wget https://downloads.raspberrypi.com/raspios_lite_armhf/images/raspios_lite_ar
 printf "${GREEN}Latest version of Raspberry Pi OS has been downloaded.${NS}\n\n"
 
 # We decompress the image of Raspberry Pi OS Lite we just retrieved
-xz -d 22026-06-18-raspios-trixie-armhf-lite.img.xz
+xz -d 2026-06-18-raspios-trixie-armhf-lite.img.xz
 
 # We mount the image so that we can define a password for the pi user
 sudo mount -o loop,offset=$((512*16384)) 2026-06-18-raspios-trixie-armhf-lite.img /mnt
